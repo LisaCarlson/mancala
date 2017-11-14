@@ -10,17 +10,17 @@
 <body ng-controller="MainController">
   <h1 class="text-center">Mancala!</h1>
   <div class="users">
-    <div class="player player-1 active">
+    <div class="player player-1" ng-class="{'active': !opponentsMove}">
       <i class="fa fa-user" aria-hidden="true"></i>
     </div>
-    <div class="player player-2">
+    <div class="player player-2" ng-class="{'active': opponentsMove}">
       <i class="fa fa-user-secret" aria-hidden="true"></i>
     </div>
   </div>
   <div class="board">
     <div class="bucket-wrapper">
       <div class="buckets">
-        <div class="bucket" data-index="{{bucket.index}}" ng-class="{ 'home-store': bucket.homeStore, 'opponent-store': bucket.opponentStore}" ng-repeat="bucket in homeBuckets" ng-click="homeMove(bucket.index)">
+        <div class="bucket" data-index="{{bucket.index}}" ng-class="{ 'home-store': bucket.homeStore, 'opponent-store': bucket.opponentStore, 'opponent-move': opponentsMove }" ng-repeat="bucket in homeBuckets" ng-click="homeMove(bucket.index)">
           <div class="count count-bottom">{{bucket.count}}</div>
         </div>
       </div>

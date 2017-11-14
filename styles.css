@@ -60,21 +60,21 @@ h1 {
 }
 
 .bucket.home-store {
-  position: fixed;
+  position: absolute;
   width: 10%;
-  right: 85px;
-  top: 20px;
-  bottom: 20px;
-  height: 90%;
+  right: -160px;
+  height: 100%;
 }
 
 .bucket.opponent-store {
-  position: fixed;
+  position: absolute;
   width: 10%;
-  left: 85px;
-  top: 20px;
-  bottom: 20px;
-  height: 90%;
+  left: -160px;
+  height: 100%;
+}
+
+.bucket.opponent-move {
+  pointer-events: none;
 }
 
 .bucket-wrapper {
@@ -91,6 +91,7 @@ h1 {
   align-items: center;
   width: 70%;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .bucket {
@@ -106,26 +107,32 @@ h1 {
 
 .bucket[data-index='7'] {
   order: 5;
+  pointer-events: none;
 }
 
 .bucket[data-index='8'] {
   order: 4;
+  pointer-events: none;
 }
 
 .bucket[data-index='9'] {
   order: 3;
+  pointer-events: none;
 }
 
 .bucket[data-index='10'] {
   order: 2;
+  pointer-events: none;
 }
 
 .bucket[data-index='11'] {
   order: 1;
+  pointer-events: none;
 }
 
 .bucket[data-index='12'] {
   order: 0;
+  pointer-events: none;
 }
 
 .bucket[data-index='13'] {
@@ -134,26 +141,32 @@ h1 {
 
 .bucket[data-index='0'] {
   order: 7;
+  cursor: pointer;
 }
 
 .bucket[data-index='1'] {
   order: 8;
+  cursor: pointer;
 }
 
 .bucket[data-index='2'] {
   order: 9;
+  cursor: pointer;
 }
 
 .bucket[data-index='3'] {
   order: 10;
+  cursor: pointer;
 }
 
 .bucket[data-index='4'] {
   order: 11;
+  cursor: pointer;
 }
 
 .bucket[data-index='5'] {
   order: 12;
+  cursor: pointer;
 }
 
 .bucket[data-index='6'] {

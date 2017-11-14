@@ -45,7 +45,10 @@ app.controller('MainController', ['$scope', function($scope) {
       opponentStore: true
     },
   ]
+  $scope.opponentsMove = false;
+  $scope.goAgain = false;
   $scope.homeMove = function(index) {
+    $scope.opponentsMove = false;
     var originalIndex = index;
     var start = index;
     var count = $scope.homeBuckets[index].count;
@@ -53,6 +56,43 @@ app.controller('MainController', ['$scope', function($scope) {
       $scope.homeBuckets[start+1].count += 1;
       start ++;
       count --;
+      if (start == 6 && count == 0) {
+        $scope.goAgain = true;
+      }
+      else {
+        $scope.goAgain = false;
+      }
+    }
+    $scope.homeBuckets[originalIndex].count = 0;
+    if (!$scope.goAgain) {
+      $scope.opponentMove();
+    }
+  }
+  $scope.opponentMove = function() {
+    $scope.opponentsMove = true;
+    var randomIndex = Math.floor(Math.random()*(12-8)+7);
+    console.log(randomIndex)
+    console.log('******************')
+    var originalIndex = randomIndex;
+    var start = randomIndex;
+    var count = $scope.homeBuckets[randomIndex].count;
+
+    // if (count == 0) {
+    //   randomIndex = Math.floor(Math.random()*(12-8)+7);
+    // }
+    while (count > 0) {
+      $scope.homeBuckets[start+1].count += 1;
+      start ++;
+      count --;
+      if (start == 13 && count == 0) {
+        $scope.opponentMove();
+      }
+      if (start == 13 && count > 0) {
+        start = -1;
+      }
+      else {
+        $scope.opponentsMove = false;
+      }
     }
     $scope.homeBuckets[originalIndex].count = 0;
   }
